@@ -22,7 +22,7 @@ algorithms and comfortable api in array object
         var arr = [3,1,2,5,7,6];
                 console.log(arr)
         Array.delete(index)
-        arr.insert(3)
+        arr.delete(3)
                 console.log(arr)
     
 #Example - binary Search
