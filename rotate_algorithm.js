@@ -1,27 +1,32 @@
-function rotateNthtime(array,nTime)
+Array.prototype.rotateNthtime = function(nTime)
 {
 	var returnArray = [];
 	
 	if( nTime === 0 )
-		return array;
-	else if( nTime > array.length )
+		return this;
+	else if( nTime > this.length )
 	{
-		nTime = nTime % array.length;
+		nTime = nTime % this.length;
 	}
 	
-	for(var A=0;A<array.length;A++)
+	for(var A=0;A<this.length;A++)
 	{
-		if( nTime+A < array.length )
+		if( nTime+A < this.length )
 		{
 			if ( nTime+A < 0 )
-				returnArray.push(array[array.length + (nTime+A)]);
+				returnArray.push(this[this.length + (nTime+A)]);
 			else
-				returnArray.push(array[nTime + A]);			
+				returnArray.push(this[nTime + A]);
 		}
 		else
 		{
-			returnArray.push(array[(nTime - array.length) + A]);
+			returnArray.push(this[(nTime - this.length) + A]);
 		}
 	}
-	return returnArray;	
+	for(var A=0;A<this.length;A++)
+	{
+		this[A] = returnArray[A];
+	}
+	//return returnArray;
+	return this;
 }
